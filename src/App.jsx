@@ -8,7 +8,6 @@ import ClaimsReview from "./pages/admin/ClaimsReview";
 import ProviderManagement from "./pages/admin/ProviderManagement";
 import ReportsAnalytics from "./pages/admin/ReportsAnalytics";
 import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
-import EmployeeLayout from "./components/layout/EmployeeLayout";
 
 
 const AppRoutes = () => {
@@ -20,18 +19,15 @@ const AppRoutes = () => {
 
         {/* Admin Routes */}
         <Route path="/admin/dashboard" element={<Dashboard />} />
-        <Route path="/admin/users" element={<UserManagement />} /> 
+        <Route path="/admin/users" element={<UserManagement />} />
         <Route path="/admin/policies" element={<PolicyManagement />} />
-         <Route path="/admin/claims" element={<ClaimsReview />} />
-         <Route path="/admin/providers" element={<ProviderManagement />} />
-         <Route path="/admin/reports" element={<ReportsAnalytics />} /> 
-  {/* employee  Routes */}
-       {/* Employee Routes */}
-<Route path="/employee" element={<EmployeeLayout />}>
-  <Route path="dashboard" element={<EmployeeDashboard />} />
-</Route>
+        <Route path="/admin/claims" element={<ClaimsReview />} />
+        <Route path="/admin/providers" element={<ProviderManagement />} />
+        <Route path="/admin/reports" element={<ReportsAnalytics />} />
 
+        {/* Employee Routes */}
 
+        <Route path="/employee/dashboard" element={<EmployeeDashboard />} />
       </Routes>
     </BrowserRouter>
   );
