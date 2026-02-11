@@ -10,6 +10,7 @@ import ClaimsReview from "./pages/admin/ClaimsReview";
 import ProviderManagement from "./pages/admin/ProviderManagement";
 import ReportsAnalytics from "./pages/admin/ReportsAnalytics";
 import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
+import EmployeeLayout from "./components/layout/EmployeeLayout";
 
 
 const AppRoutes = () => {
@@ -27,7 +28,11 @@ const AppRoutes = () => {
          <Route path="/admin/providers" element={<ProviderManagement />} />
          <Route path="/admin/reports" element={<ReportsAnalytics />} /> 
   {/* employee  Routes */}
-         <Route path="/employee/dashboard" element={<EmployeeDashboard />} />
+       {/* Employee Routes */}
+<Route path="/employee" element={<EmployeeLayout />}>
+  <Route path="dashboard" element={<EmployeeDashboard />} />
+</Route>
+
 
       </Routes>
     </BrowserRouter>
