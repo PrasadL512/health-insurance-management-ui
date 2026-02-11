@@ -1,13 +1,21 @@
-
-
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleLogin = (e) => {
-    e.preventDefault(); // prevent page reload
-    navigate("/admin/dashboard");
+    e.preventDefault();
+
+    // Dummy role-based login (frontend only)
+    if (username.toLowerCase() === "admin") {
+      navigate("/admin/dashboard");
+    } else {
+      navigate("/employee/dashboard");
+    }
   };
 
   return (
@@ -41,7 +49,7 @@ const Login = () => {
           Sign in to manage your health coverage
         </p>
 
-        {/* Form */}
+        {/* Login Form */}
         <form className="space-y-4" onSubmit={handleLogin}>
 
           {/* Username */}
@@ -52,6 +60,9 @@ const Login = () => {
             <input
               type="text"
               placeholder="Enter your username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -64,11 +75,14 @@ const Login = () => {
             <input
               type="password"
               placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
-          {/* Sign In Button */}
+          {/* Login Button */}
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition"
@@ -87,10 +101,10 @@ const Login = () => {
           </button>
         </div>
 
-        {/* Demo Credentials */}
+        {/* Demo Note */}
         <p className="text-xs text-gray-400 text-center mt-6">
-          Demo credentials: Use <span className="font-medium">admin</span> for admin role
-          or any other username for employee role. Password: any 4+ characters.
+          Use <span className="font-medium">admin</span> as username for Admin login.
+          Any other username will login as Employee.
         </p>
       </div>
     </div>
