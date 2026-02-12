@@ -10,6 +10,7 @@ import ReportsAnalytics from "./pages/admin/ReportsAnalytics";
 import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 import PolicyEnrollment from "./pages/employee/PolicyEnrollment";
 import SubmitClaim from "./pages/employee/SubmitClaim";
+import ClaimHistory from "./pages/employee/ClaimHistory";
 
 
 const AppRoutes = () => {
@@ -32,6 +33,7 @@ const AppRoutes = () => {
         <Route path="/employee/dashboard" element={<EmployeeDashboard />} />
         <Route path="/employee/policy-enrollment" element={<PolicyEnrollment />}/>
         <Route path="/employee/submit-claim" element={<SubmitClaim />}/>
+         <Route path="/employee/claim-history" element={<ClaimHistory />}/>
       </Routes>
     </BrowserRouter>
   );
