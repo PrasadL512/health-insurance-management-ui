@@ -9,6 +9,7 @@ import ProviderManagement from "./pages/admin/ProviderManagement";
 import ReportsAnalytics from "./pages/admin/ReportsAnalytics";
 import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 import PolicyEnrollment from "./pages/employee/PolicyEnrollment";
+import SubmitClaim from "./pages/employee/SubmitClaim";
 
 
 const AppRoutes = () => {
@@ -29,9 +30,8 @@ const AppRoutes = () => {
         {/* Employee Routes */}
 
         <Route path="/employee/dashboard" element={<EmployeeDashboard />} />
-        <Route path="/employee/policy-enrollment" element={<PolicyEnrollment />}
-/>
-
+        <Route path="/employee/policy-enrollment" element={<PolicyEnrollment />}/>
+        <Route path="/employee/submit-claim" element={<SubmitClaim />}/>
       </Routes>
     </BrowserRouter>
   );
