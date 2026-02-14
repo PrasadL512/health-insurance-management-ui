@@ -3,9 +3,14 @@ import { NavLink, useNavigate } from "react-router-dom";
 const AdminLayout = ({ children }) => {
   const navigate = useNavigate();
 
+  const username = localStorage.getItem("username") || "Admin";
+  const role = localStorage.getItem("role") || "Admin";
+
   const handleLogout = () => {
-    // UI-only logout
-    navigate("/");
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("username");
+    navigate("/login");
   };
 
   return (
@@ -100,29 +105,33 @@ const AdminLayout = ({ children }) => {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
+
         {/* Header */}
         <header className="bg-white border-b px-6 py-4 flex justify-between items-center">
           <div>
-            <h2 className="text-lg font-medium">Welcome back, admin</h2>
-            <p className="text-sm text-gray-500">Admin Portal</p>
+            <h2 className="text-lg font-medium">
+              Welcome back, {username}
+            </h2>
+            <p className="text-sm text-gray-500">
+              {role} Portal
+            </p>
           </div>
 
           <div className="flex items-center gap-4">
-            {/* Notification */}
             <span className="text-xl">🔔</span>
 
             {/* Profile */}
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center">
-                A
+                {username.charAt(0).toUpperCase()}
               </div>
               <div>
-                <p className="text-sm font-medium">admin</p>
-                <p className="text-xs text-gray-500">Admin</p>
+                <p className="text-sm font-medium">{username}</p>
+                <p className="text-xs text-gray-500">{role}</p>
               </div>
             </div>
 
-            {/* Logout Icon (EXACT as requested) */}
+            {/* Logout Button */}
             <button
               onClick={handleLogout}
               title="Logout"
