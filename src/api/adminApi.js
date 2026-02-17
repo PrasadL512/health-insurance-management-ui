@@ -1,20 +1,21 @@
-
-// ADMIN APIs
-
 import api from "../services/apiConfig";
 
-export const getRoles = () => {
-  return api.get("/admin/roles");
+export const getUsers = async () => {
+  const response = await api.get("/admin/users");
+  return response.data;
 };
 
-export const getUsers = () => {
-  return api.get("/admin/users");
+export const getRoles = async () => {
+  const response = await api.get("/admin/roles");
+  return response.data;
 };
 
-export const createUser = (data) => {
-  return api.post("/admin/users", data);
+export const toggleUserStatus = async (id) => {
+  const response = await api.put(`/admin/users/${id}/status`);
+  return response.data;
 };
 
-export const toggleUserStatus = (userId) => {
-  return api.put(`/admin/users/${userId}/status`);
+export const createUser = async (data) => {
+  const response = await api.post("/admin/users", data);
+  return response.data;
 };
